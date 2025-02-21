@@ -1,9 +1,15 @@
+
+
 public class Mahasiswa08 {
 
     String nama, nim, kelas;
     double ipk;
 
-    public Mahasiswa08  (String nm, String nim, double ipk, String kls) {
+    public Mahasiswa08 () {
+
+    }
+
+    public Mahasiswa08 (String nm, String nim, double ipk, String kls) {
         nama = nm;
         this.nim = nim;
         this.ipk = ipk;

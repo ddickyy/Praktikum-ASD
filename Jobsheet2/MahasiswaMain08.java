@@ -6,7 +6,6 @@ public class MahasiswaMain08 {
         mhs1.kelas = "TI 1B";
         mhs1.ipk = 3.89;
   
-        mhs1.tampilkanInformasi();
         mhs1.ubahKelas("TI 1A");
         mhs1.updateIpk(3.60);
         mhs1.tampilkanInformasi();
@@ -16,7 +15,7 @@ public class MahasiswaMain08 {
         mhs2.tampilkanInformasi();
         
         Mahasiswa08 mhsDicky = new Mahasiswa08("Samuel","2514702034",4.00,"TI 4A");
-        mhsDicky.tampilkanInformasi();
+        mhsDicky.nilaiKinerja();
      }
 }
 

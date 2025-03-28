@@ -6,7 +6,8 @@ public class MahasiswaDemo08 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         MahasiswaBerprestasi08 list = new MahasiswaBerprestasi08();
-        int jumMhs = 5;
+        System.out.println("Masukkan jumlah mahasiswa: ");
+        int jumMhs = input.nextInt();
 
         for (int i = 0; i < jumMhs; i++) {
             System.out.println("Masukkan data mahasiswa ke-" + (i + 1));

@@ -25,6 +25,7 @@ public class MahasiswaDemo08 {
             list.tambah(new Mahasiswa08(nim, nama, kelas, ipk));
         }
 
+        list.SelectionSort();
         list.tampil();
         System.out.println("---------------------------------------");
         System.out.println("Pencarian data");

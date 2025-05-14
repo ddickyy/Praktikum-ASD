@@ -43,11 +43,11 @@ public class MahasiswaDemo08 {
                         System.out.println("Nilai Biner Tugas: " + biner);
                     }
                     break;
-                case 3: 
+                case 3:
                     Mahasiswa08 lihat = stack.peek();
                     if (lihat != null) {
                         System.out.println("Tugas terakhir dikumpulkan oleh " + lihat.nama);
-                    
+
                     }
                     break;
                 case 4:
@@ -57,7 +57,7 @@ public class MahasiswaDemo08 {
                     break;
                 case 5:
                     Mahasiswa08 awal = stack.awal();
-                    if(awal!=null) {
+                    if (awal != null) {
                         System.out.println(awal.nama + " adalah mahasiswa yang pertama mengumpulkan");
                     }
                     break;

@@ -77,6 +77,14 @@ public class AntrianLayanan {
         return size;
     }
 
+    public void lihatAkhir() {
+        if (IsEmpty()) {
+            System.out.println("Antrian kosong");
+        }
+        System.out.println("Mahasiswa Antrian belakang: ");
+        data[rear].tampilkanData();
+    }
+
     public void clear() {
         if (!IsEmpty()) {
             front = rear = -1;

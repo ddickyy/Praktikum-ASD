@@ -16,14 +16,24 @@ public class QueueMain {
                 case 1:
                     System.out.print("Masukkan data baru: ");
                     int dataMasuk = sc.nextInt();
-                    Q.enqueue(dataMasuk);
+                    if (Q.IsFull()){
+                        System.out.println("Queue sudah penuh. Program dihentikan");
+                        return;
+                    } else {
+                        Q.enqueue(dataMasuk);
+                    }
                     break;
                 case 2:
-                    int dataKeluar = Q.dequeue();
-                    if (dataKeluar != 0) {
+                    if (Q.IsEmpty()) {
+                        System.out.println("Queue masih kosong. Program dihentikan");
+                        return;
+                    } else {
+                        int dataKeluar = Q.dequeue();
+                        if (dataKeluar != 0) {
                         System.out.println("Data yang dikeluarkan: " + dataKeluar);
-                        break;
+                        }
                     }
+                    break;
                 case 3:
                     Q.print();
                     break;

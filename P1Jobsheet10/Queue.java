@@ -78,7 +78,7 @@ public class Queue {
             int i = front;
             while (i != rear) {
                 System.out.println(data[i] + " ");
-                i = (i + 1) % 2;
+                i = (i + 1) % max;
             }
             System.out.println(data[i] + " ");
             System.out.println("Jumlah elemen= " + size);

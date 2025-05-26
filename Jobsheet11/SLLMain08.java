@@ -5,18 +5,27 @@ public class SLLMain08 {
         Scanner sc = new Scanner(System.in);
         SingleLinkedList08 sll = new SingleLinkedList08();
 
-        Mahasiswa08 mhs1 = new Mahasiswa08("244107040390", "Alvaro", "2A", 3.8);
-        Mahasiswa08 mhs2 = new Mahasiswa08("244107040391", "Kemal", "2A", 3.5);
-        Mahasiswa08 mhs3 = new Mahasiswa08("244107040392", "Ayu", "2A", 3.7);
-        Mahasiswa08 mhs4 = new Mahasiswa08("244107040393", "Dirga", "2A", 3.8);
+        String pilih;
+        do {   
+            System.out.println("Tambahkan Data Mahasiswa");
+            System.out.print("NIM   : ");
+            String nim = sc.nextLine();
+            System.out.print("Nama  : ");
+            String nama = sc.nextLine();
+            System.out.print("Kelas : ");
+            String kelas = sc.nextLine();
+            System.out.print("IPK   : ");
+            double ipk = sc.nextDouble();
+            Mahasiswa08 mhs = new Mahasiswa08(nim, nama, kelas, ipk);
+            sll.addFirst(mhs);
+            
+            System.out.print("Ingin menambah data lagi? (Y/N): ");
+            pilih = sc.nextLine();
 
-        sll.print();
-        sll.addFirst(mhs4);
-        sll.print();
-        sll.addLast(mhs1);
-        sll.print();
-        sll.insertAfter("Dirga", mhs3);
-        sll.insertAt(2, mhs2);
+            sc.nextLine();
+        } while (pilih.equalsIgnoreCase("y"));
+
+        System.out.println();
         sll.print();
     }
 }

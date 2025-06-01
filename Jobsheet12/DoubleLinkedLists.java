@@ -20,7 +20,8 @@ public class DoubleLinkedLists {
             newNode.next = head;
             head.prev = newNode;
             head = newNode;
-        }
+        } 
+        size++;
     }
 
     public void addLast(Mahasiswa08 data) {
@@ -31,7 +32,8 @@ public class DoubleLinkedLists {
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
-        }
+        } 
+        size++;
     }
 
     public void add(int index, Mahasiswa08 data) {
@@ -69,9 +71,11 @@ public class DoubleLinkedLists {
         }
         if (head == tail) {
             head = tail = null;
+            size--;
         } else {
             head = head.next;
             head.prev = null;
+            size--;
         }
     }
 
@@ -82,12 +86,85 @@ public class DoubleLinkedLists {
         } 
         if (head == tail) {
             head = tail = null;
+            size--;
         } else {
             tail = tail.prev;
             tail.next = null;
+            size--;
         }
     }
 
+    public void removeAfter(String nim) {
+        Node08 current = head;
+        while (current != null && !current.data.nim.equals(nim)) {
+            current = current.next;
+        }
+
+        if (current != null && current.next != null) {
+            Node08 delNode = current.next;
+            current.next = delNode.next;
+            if (delNode.next != null) {
+                delNode.next.prev = current;
+            } else {
+                tail = current;
+            }
+            size--;
+        } else {
+            System.out.println("Tidak ada node setelah NIM tersebut atau NIM tidak ditemukan.");
+        }
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Index tidak valid.");
+            return;
+        }
+
+        if (index == 0) {
+            removeFirst();
+            size--;
+        } else if (index == size - 1) {
+            removeLast();
+            size--;
+        } else {
+            Node08 current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+            size--;
+        }
+    }
+
+    public void getFirst() {
+        if (head != null) {
+            head.data.tampil();
+        } else {
+            System.out.println("Data kosong.");
+        }
+    }
+
+    public void getLast() {
+        if (tail != null) {
+            tail.data.tampil();
+        } else {
+            System.out.println("Data kosong.");
+        }
+    }
+
+    public void getIndex(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Index tidak valid.");
+            return;
+        }
+        Node08 current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        current.data.tampil();
+    }
+    
     public Node08 search(String nim) {
         Node08 current = head;
         while (current != null) {
@@ -128,6 +205,10 @@ public class DoubleLinkedLists {
         }
 
         System.out.println("Node berhasil disisipkan setelah NIM " + keyNim);
+        size++;
     }
 
+        public int getSize() {
+        return size;
+    }
 }

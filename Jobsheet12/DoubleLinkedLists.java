@@ -1,7 +1,7 @@
-
 public class DoubleLinkedLists {
 
     Node08 head, tail;
+    int size = 0;
 
     public DoubleLinkedLists() {
         head = null;
@@ -34,8 +34,21 @@ public class DoubleLinkedLists {
         }
     }
 
-    public void add(int item, int index) {
-
+    public void add(int index, Mahasiswa08 data) {
+        if (index == 0) {
+            addFirst(data);
+        } else if (index >= size) {
+            addLast(data);
+        } else {
+            Node08 current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            Node08 newNode = new Node08(current.prev, data, current);
+            current.prev.next = newNode;
+            current.prev = newNode;
+        }
+        size++;
     }
 
     public void print() {
@@ -50,24 +63,41 @@ public class DoubleLinkedLists {
     }
 
     public void removeFirst() {
-
+        if (isEmpty()) {
+            System.out.println("List kosong, tidak bisa dihapus");
+            return;
+        }
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
     }
 
     public void removeLast() {
-
+        if (isEmpty()) {
+            System.out.println("List kosong, tidak bisa dihapus");
+            return;
+        } 
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            tail = tail.prev;
+            tail.next = null;
+        }
     }
 
     public Node08 search(String nim) {
-    Node08 current = head;
-    while (current != null) {
-        if (current.data.nim.equals(nim)) {
-            return current; 
+        Node08 current = head;
+        while (current != null) {
+            if (current.data.nim.equals(nim)) {
+                return current;
+            }
+            current = current.next;
         }
-        current = current.next;
+        return null; // tidak ditemukan
     }
-    return null; // tidak ditemukan
-}
-
 
     public void insertAfter(String keyNim, Mahasiswa08 data) {
         Node08 current = head;

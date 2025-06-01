@@ -33,10 +33,14 @@ public class DLLMain {
                     break;
                 }
                 case 3 : {
+                    System.out.println("Data sudah berhasil dihapus, data yang terhapus adalah");
+                    list.head.data.tampil();
                     list.removeFirst();
                     break;
                 }
                 case 4 : {
+                    System.out.println("Data sudah berhasil dihapus, data yang terhapus adalah");
+                    list.tail.data.tampil();
                     list.removeLast();
                     break;
                 }
